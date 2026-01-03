@@ -1,0 +1,44 @@
+.app-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease;
+  overflow: hidden;
+
+  // --- MOBILE ADJUSTMENT ---
+  @media (max-width: 768px) {
+    flex-direction: column; // Stack Sidebar on top of Content
+  }
+}
+
+.main-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow-y: auto; // THIS enables the vertical scroll for your Home/About/Skills
+  overflow-x: hidden; // Prevents the horizontal "wiggle" on mobile
+  scroll-behavior: smooth;
+}
+.content {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden; // Kills the right-side scroll bug
+  position: relative;
+  padding: 0;
+
+  // Ensure the content area fills the remaining space
+  display: flex;
+  flex-direction: column;
+}
+
+/* Sidebar Specific Mobile Fix */
+app-sidebar {
+  @media (max-width: 768px) {
+    width: 100% !important;
+    height: auto; // Or a fixed height like 60px
+    min-height: 60px;
+  }
+}

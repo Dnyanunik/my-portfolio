@@ -1,0 +1,45 @@
+<section class="projects-section">
+  <div #rendererContainer class="three-bg"></div>
+
+  <div class="container">
+    <div class="header">
+      <p style="color: #ff8000; font-weight: 700; letter-spacing: 2px; margin-bottom: 5px;">WELCOME TO MY PORTFOLIO</p>
+      <h1>EXPLORE MY PROJECTS</h1>
+      <div class="accent"></div>
+    </div>
+
+    <div class="grid">
+      <div class="card" *ngFor="let p of projects">
+        <div class="card-header">
+          <div class="icon-box" [style.background-color]="p.color">
+            <mat-icon>{{p.icon}}</mat-icon>
+          </div>
+          <h3>{{p.title}}</h3>
+        </div>
+
+        <div class="card-body">
+          <p class="desc">{{p.description}}</p>
+          <div class="tag-container">
+            <span class="tag" *ngFor="let t of p.tech">{{t}}</span>
+          </div>
+        </div>
+
+      <div class="actions">
+  <a [href]="p.github" target="_blank" style="text-decoration: none; flex: 1;">
+    <button mat-button class="btn-code" style="width: 100%;">
+      <mat-icon style="font-size: 18px; margin-right: 5px;">code</mat-icon>
+      View Code
+    </button>
+  </a>
+
+  <a [href]="p.live" target="_blank" style="text-decoration: none; flex: 1;">
+    <button mat-flat-button class="btn-live" [style.background-color]="p.color" style="width: 100%;">
+      <mat-icon style="font-size: 18px; margin-right: 5px;">launch</mat-icon>
+      Live Demo
+    </button>
+  </a>
+</div>
+      </div>
+    </div>
+  </div>
+</section>

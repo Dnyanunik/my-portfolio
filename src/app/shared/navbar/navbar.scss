@@ -1,0 +1,127 @@
+/* =========================
+   NAVBAR BASE
+========================= */
+.navbar {
+  height: 72px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  background: var(--nav-bg) !important;
+  color: var(--text-color) !important;
+  border-bottom: 1px solid var(--border-color);
+  backdrop-filter: blur(12px); // Increased blur for better "Video" feel
+  position: sticky;
+  top: 0;
+  left: 0;               // Anchor to left
+  right: 0;              // Anchor to right
+  z-index: 1000;
+  animation: navbarEnter 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes navbarEnter {
+  from { opacity: 0; transform: translateY(-100%); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================
+   PROFILE SECTION
+========================= */
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0; // Essential for ellipsis to work
+  flex-shrink: 1;
+
+  .info {
+    // Hide text early to prevent pushing the search/actions off screen
+    @media (max-width: 600px) {
+      display: none;
+    }
+
+    h4 {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-color);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 180px;
+    }
+
+    p {
+      margin: 0;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #e41297;
+    }
+  }
+}
+
+.avatar-wrapper {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 2px solid #e41297;
+  padding: 2px; // Creates a small gap between border and canvas
+
+  canvas {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+  }
+}
+
+/* =========================
+   SEARCH & ACTIONS
+========================= */
+.spacer {
+  flex: 1;
+}
+
+.search {
+  width: 100%;
+  max-width: 300px;
+  margin: 0 16px;
+
+  // Search occupies a lot of space, hide it on tablet/mobile
+  @media (max-width: 900px) {
+    display: none;
+  }
+
+  ::ng-deep .mat-mdc-text-field-wrapper {
+    border-radius: 30px !important;
+    height: 40px !important;
+    background: rgba(var(--text-color-rgb), 0.05) !important;
+  }
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0; // Never let buttons get crushed
+}
+
+/* =========================
+   MOBILE OVERRIDES
+========================= */
+@media (max-width: 768px) {
+  .navbar {
+    height: 60px;
+    padding: 0 12px;
+    // On mobile, ensure navbar is not pushed by sidebars
+    position: fixed;
+    width: 100vw;
+  }
+
+  .avatar-wrapper {
+    width: 34px;
+    height: 34px;
+  }
+}

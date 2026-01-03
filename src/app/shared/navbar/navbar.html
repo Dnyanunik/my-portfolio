@@ -1,0 +1,27 @@
+<mat-toolbar class="navbar">
+  <div class="profile">
+    <div class="avatar-wrapper">
+      <canvas #avatarCanvas></canvas>
+    </div>
+
+    <div class="info">
+      <h4>DNYANESHWAR HARIDAS NIKAM</h4>
+      <p>Full-Stack Developer</p>
+    </div>
+  </div>
+
+  <span class="spacer"></span>
+
+  <mat-form-field appearance="outline" class="search" subscriptSizing="dynamic">
+    <mat-icon matPrefix>search</mat-icon>
+    <input matInput placeholder="Find My Projects..." />
+  </mat-form-field>
+
+  <button mat-icon-button class="icon-btn" (click)="toggleMode()">
+    <mat-icon>{{ theme.isDark ? 'light_mode' : 'dark_mode' }}</mat-icon>
+  </button>
+
+  <button mat-icon-button class="icon-btn">
+    <mat-icon>notifications</mat-icon>
+  </button>
+</mat-toolbar>

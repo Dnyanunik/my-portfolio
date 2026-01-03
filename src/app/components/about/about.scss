@@ -1,0 +1,134 @@
+$accent: #00d2ff;
+$pink: #e41297;
+$transition: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+
+:host {
+  display: block;
+}
+
+.about-section {
+  position: relative;
+  min-height: 100vh;
+  padding: 100px 5%;
+  overflow: hidden;
+  background: var(--bg-main); // Aapki global theme se sync hoga
+  display: flex;
+  align-items: center;
+
+  .canvas-bg {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 1;
+    opacity: 0.3;
+  }
+
+  .container {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+
+    @media (max-width: 992px) {
+      grid-template-columns: 1fr;
+      text-align: center;
+      gap: 50px;
+    }
+  }
+
+  // Photo Styling
+  .about-image {
+    position: relative;
+    .image-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+
+      img {
+        width: 100%;
+        height: auto;
+        border-radius: 20px;
+        z-index: 2;
+        position: relative;
+        filter: grayscale(20%);
+        transition: $transition;
+        &:hover { filter: grayscale(0%); }
+      }
+
+      .image-border {
+        position: absolute;
+        top: 20px; left: 20px;
+        width: 100%; height: 100%;
+        border: 2px solid $accent;
+        border-radius: 20px;
+        z-index: 1;
+      }
+    }
+  }
+
+  // Text Styling
+  .about-content {
+    color: var(--text-primary);
+
+    .subtitle {
+      color: $pink;
+      letter-spacing: 4px;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    h2 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      margin: 10px 0 20px;
+      font-weight: 900;
+      .highlight { color: $accent; }
+    }
+
+    .description {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--text-secondary);
+      margin-bottom: 30px;
+    }
+
+    .stats-grid {
+      display: flex;
+      gap: 40px;
+      margin-bottom: 40px;
+      @media (max-width: 576px) { justify-content: center; }
+
+      .stat-item {
+        .number { font-size: 2rem; font-weight: 800; display: block; }
+        .label { font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; }
+      }
+    }
+
+    .cta-btn {
+      padding: 15px 35px;
+      background: transparent;
+      border: 1px solid $accent;
+      color: $accent;
+      border-radius: 50px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: $transition;
+      &:hover { background: $accent; color: #000; transform: scale(1.05); }
+    }
+  }
+}
+
+// Body theme sync logic
+:host-context(body.light-mode) .about-section {
+    --text-primary: #111111;
+    --text-secondary: #555555;
+    --bg-main: #f4f4f2;
+}

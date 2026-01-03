@@ -1,0 +1,59 @@
+<button class="menu-toggle-btn" (click)="toggleMenu()" mat-fab>
+  <mat-icon>{{ isMenuOpen ? 'close' : 'menu' }}</mat-icon>
+</button>
+
+<div class="sidebar-overlay" [class.active]="isMenuOpen" (click)="closeMenu()"></div>
+
+<aside class="sidebar" [class.open]="isMenuOpen">
+  <div class="logo" routerLink="/" (click)="closeMenu()" style="cursor: pointer;">
+    <mat-icon>code</mat-icon>
+  </div>
+
+  <nav class="menu">
+    <a mat-icon-button
+       class="menu-item"
+       routerLink="/"
+       routerLinkActive="active"
+       [routerLinkActiveOptions]="{exact: true}"
+       matTooltip="Home"
+       (click)="closeMenu()">
+      <mat-icon>home</mat-icon>
+    </a>
+
+    <a mat-icon-button
+       class="menu-item"
+       routerLink="/about"
+       routerLinkActive="active"
+       matTooltip="About"
+       (click)="closeMenu()">
+      <mat-icon>person</mat-icon>
+    </a>
+
+    <a mat-icon-button
+       class="menu-item"
+       routerLink="/skills"
+       routerLinkActive="active"
+       matTooltip="Skills"
+       (click)="closeMenu()">
+      <mat-icon>psychology</mat-icon>
+    </a>
+
+    <a mat-icon-button
+       class="menu-item"
+       routerLink="/projects"
+       routerLinkActive="active"
+       matTooltip="Projects"
+       (click)="closeMenu()">
+      <mat-icon>work</mat-icon>
+    </a>
+
+    <a mat-icon-button
+       class="menu-item"
+       routerLink="/contact"
+       routerLinkActive="active"
+       matTooltip="Contact"
+       (click)="closeMenu()">
+      <mat-icon>mail</mat-icon>
+    </a>
+  </nav>
+</aside>

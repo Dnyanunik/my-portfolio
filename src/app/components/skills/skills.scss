@@ -1,0 +1,132 @@
+$accent-color: #ff8000;
+$transition-smooth: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+
+:host {
+  display: block;
+  // Dark/Light switch ab global variables se handle hoga
+}
+
+.skills-wrapper {
+  background: var(--bg-main); // Global variable used here
+  min-height: 100vh;
+  padding: 80px 5%;
+  transition: background $transition-smooth;
+  position: relative;
+  overflow: hidden;
+
+  // Background Blobs linked to global feel
+  .bg-blobs {
+    position: absolute; inset: 0; pointer-events: none;
+    .blob {
+      position: absolute; width: 450px; height: 450px;
+      border-radius: 50%; filter: blur(90px); opacity: 0.15;
+      &.blob-1 { background: $accent-color; top: -5%; left: -5%; }
+      &.blob-2 { background: #00d2ff; bottom: -5%; right: -5%; }
+    }
+  }
+
+  .simple-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    position: relative; z-index: 1;
+
+    .card-entrance {
+      opacity: 0;
+      transform: translateY(40px);
+      animation: welcomeSlide 0.8s $transition-smooth forwards;
+    }
+
+    .base-card {
+      background: var(--card-bg); // Global variable
+      border-radius: 12px;
+      border: 1px solid var(--border-line); // Global variable
+      transition: $transition-smooth;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      cursor: pointer;
+      overflow: hidden;
+
+      &:hover {
+        border-color: var(--accent); // Dynamic from [style.--accent]
+        transform: translateY(-10px);
+        box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+      }
+
+      .card-img {
+        height: 280px;
+        background: #000;
+        img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+      }
+
+      &:hover .card-img img { transform: scale(1.1); }
+
+      .card-footer {
+        padding: 20px;
+        h3 { color: var(--text-main); margin: 5px 0; font-weight: 800; } // Global text
+        .year-tag { color: var(--text-muted); font-size: 11px; } // Global muted text
+        .btn-text { color: var(--accent); font-weight: 800; font-size: 12px; }
+      }
+    }
+  }
+
+  /* Fan Slider Overlay */
+  .overlay {
+    position: fixed; inset: 0;
+    background: var(--bg-main); // Fullscreen overlay takes global bg
+    z-index: 1000; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    backdrop-filter: blur(10px);
+
+    .close-btn {
+      color: var(--text-main);
+      position: absolute; top: 30px; right: 40px;
+      background: none; border: none; font-size: 2.5rem; cursor: pointer;
+    }
+
+    .fan-slider {
+      display: flex; justify-content: center; align-items: center;
+      height: 450px; position: relative; perspective: 1000px;
+
+      .fan-card {
+        position: absolute; width: 260px; height: 380px; border-radius: 20px;
+        background: var(--card-bg);
+        border: 2px solid var(--border-line);
+        box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+        transition: transform $transition-smooth, box-shadow $transition-smooth;
+        overflow: hidden;
+
+        // Fan effect logic as-it-is
+        transform: translateX(calc(var(--offset) * 85px))
+                   rotate(calc(var(--offset) * 8deg))
+                   translateY(calc(abs(var(--offset)) * 20px));
+
+        img { width: 100%; height: 100%; object-fit: cover; }
+        &:hover {
+          transform: translateX(calc(var(--offset) * 85px)) rotate(0deg) translateY(-40px) scale(1.1);
+          z-index: 100;
+          border-color: $accent-color;
+        }
+      }
+    }
+
+    .social-footer {
+      text-align: center; margin-top: 40px;
+      h2 { color: var(--text-main); margin-bottom: 20px; font-weight: 800; text-transform: uppercase; }
+      .links {
+        display: flex; gap: 20px; justify-content: center;
+        .social-link {
+          width: 50px; height: 50px; border-radius: 50%; border: 1px solid var(--border-line);
+          display: flex; align-items: center; justify-content: center; transition: 0.3s;
+          svg { width: 22px; height: 22px; fill: var(--text-main); }
+          &:hover {
+            border-color: $accent-color; transform: translateY(-5px);
+            svg { fill: $accent-color; }
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes welcomeSlide {
+  to { opacity: 1; transform: translateY(0); }
+}

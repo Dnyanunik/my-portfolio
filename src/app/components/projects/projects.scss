@@ -1,0 +1,142 @@
+.projects-section {
+  background: var(--bg-main);
+  min-height: 100vh;
+  position: relative;
+  padding: 60px 5%;
+  overflow-x: hidden;
+
+  .three-bg {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 0; pointer-events: none;
+  }
+
+  .container {
+    position: relative; z-index: 10;
+    max-width: 1200px; margin: 0 auto;
+  }
+
+  .header {
+    text-align: center; margin-bottom: 50px;
+    animation: fadeInDown 1s ease-out; // Entrance animation
+
+    h1 { font-size: clamp(2rem, 8vw, 3.5rem); font-weight: 900; color: var(--text-main); margin: 0; }
+    .accent { width: 60px; height: 5px; background: #ff8000; margin: 15px auto; border-radius: 10px; }
+  }
+
+  .grid {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;
+  }
+
+  .card {
+    background: var(--card-bg) !important;
+    border: 2px solid var(--border-line);
+    border-radius: 28px;
+    padding: 30px;
+    width: 350px;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    // --- ENTRANCE ANIMATION (On Load) ---
+    animation: cardEntrance 0.8s ease-out backwards;
+    @for $i from 1 through 6 {
+      &:nth-child(#{$i}) { animation-delay: #{$i * 0.15}s; }
+    }
+
+    // --- MOBILE SCROLL REVEAL (Interactive) ---
+    @media (prefers-reduced-motion: no-preference) {
+      view-timeline-name: --card-reveal;
+      view-timeline-axis: block;
+      animation: reveal linear both;
+      animation-timeline: --card-reveal;
+      animation-range: entry 10% cover 30%;
+    }
+
+    &:hover, &:active {
+      transform: translateY(-12px) scale(1.02);
+      border-color: #ff8000;
+      box-shadow: 0 20px 40px rgba(255, 128, 0, 0.15);
+
+      .icon-box { transform: rotate(-10deg) scale(1.1); }
+    }
+
+    .card-header {
+      display: flex; align-items: center; gap: 15px;
+      margin-bottom: 20px; border-bottom: 1px solid var(--border-line);
+      padding-bottom: 15px;
+
+      .icon-box {
+        width: 50px; height: 50px; border-radius: 12px;
+        display: flex; align-items: center; justify-content: center;
+        transition: transform 0.3s ease;
+        mat-icon { color: #000; font-size: 24px; }
+      }
+    }
+
+    h3 { margin: 0; color: var(--text-main); font-size: 1.4rem; font-weight: 800; }
+    .desc { color: var(--text-muted); line-height: 1.6; min-height: 60px; font-size: 0.95rem; }
+
+    .tag-container {
+      display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0;
+      .tag {
+        border: 1px solid var(--border-line);
+        padding: 5px 12px; border-radius: 10px;
+        font-size: 0.75rem; color: var(--text-main);
+        background: rgba(128, 128, 128, 0.05);
+      }
+    }
+
+   .actions {
+  display: flex;
+  gap: 12px;
+  width: 100%; // Pura width cover karega
+  margin-top: auto; // Buttons ko hamesha niche rakhega
+
+  a {
+    display: block;
+    flex: 1;
+  }
+
+  button {
+    border-radius: 12px;
+    font-weight: 700;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+
+    &:hover {
+      filter: brightness(1.1); // Hover par thoda light hoga
+    }
+  }
+
+  .btn-code {
+    color: var(--text-main);
+    border: 1.5px solid var(--border-line) !important;
+  }
+
+  .btn-live {
+    color: #000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+}
+
+// --- ANIMATIONS ---
+
+@keyframes cardEntrance {
+  from { opacity: 0; transform: translateY(50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(80px) scale(0.9); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+  }
+}
