@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --configuration production --ssr false --prerender false",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:my-portflio": "node dist/my-portflio/server/server.mjs"
