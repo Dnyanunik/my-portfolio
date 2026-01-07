@@ -53,22 +53,6 @@ Modern, clean design utilizing backdrop blurs and vibrant neon accents.
 Configured for high Lighthouse scores using tree-shaking and optimized build budgets.
 
 
-
-
----
-
-📂 Project Structure
-
-
-src/
-├── app/
-│   ├── components/   # Reusable UI (Sidebar, Toggle Buttons)
-│   ├── pages/        # Core Views (Home, About, Projects, Skills, Contact)
-│   └── services/     # Logic for Three.js Scenes & GSAP Animations
-├── assets/           # 3D Models (.glb/.gltf), Textures, and static images
-└── styles.scss       # Global styles, variables, and theme configurations
-
-
 📦 Output Directory
 
 https://my-portfolio-orcin-kappa-75.vercel.app
