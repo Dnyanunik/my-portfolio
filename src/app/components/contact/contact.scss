@@ -4,7 +4,7 @@ $transition-smooth: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 .contact-wrapper {
   background: var(--bg-main);
   min-height: 100vh;
-  padding: 100px 5%;
+  padding: 80px 5%;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -23,55 +23,73 @@ $transition-smooth: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 
   .header {
     text-align: center; margin-bottom: 60px; position: relative; z-index: 2;
-    h1 { font-size: 3.5rem; font-weight: 900; color: var(--text-main); letter-spacing: -2px; }
-    .accent-line { width: 60px; height: 5px; background: $accent-color; margin: 15px auto; border-radius: 10px; }
+    h1 {
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 900;
+      color: var(--text-main);
+      letter-spacing: -2px;
+      margin: 0;
+    }
+    .accent-line {
+      width: 60px; height: 5px; background: $accent-color;
+      margin: 15px auto; border-radius: 10px;
+    }
   }
 
   .contact-container {
     display: grid;
     grid-template-columns: 1fr 1.5fr;
-    gap: 50px;
+    gap: 40px;
     width: 100%;
     max-width: 1100px;
     position: relative; z-index: 2;
-
     @media (max-width: 850px) { grid-template-columns: 1fr; }
   }
 
   .contact-info {
-    display: flex; flex-direction: column; gap: 30px;
+    display: flex; flex-direction: column; gap: 25px;
 
     .info-card {
       background: var(--card-bg);
       border: 1px solid var(--border-line);
       padding: 25px; border-radius: 20px;
-      transition: $transition-smooth;
       display: flex; align-items: center; gap: 20px;
+      transition: $transition-smooth;
+      // Added shadow that works for both modes
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 
-      mat-icon { color: $accent-color; font-size: 30px; width: 30px; height: 30px; }
+      mat-icon { color: $accent-color; font-size: 28px; width: 28px; height: 28px; }
+
       .text-box {
-        h4 { color: var(--text-muted); margin: 0; font-size: 0.8rem; text-transform: uppercase; }
-        p { color: var(--text-main); margin: 5px 0 0; font-weight: 600; font-size: 1.1rem; word-break: break-word; }
+        h4 { color: var(--text-muted); margin: 0; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
+        p { color: var(--text-main); margin: 5px 0 0; font-weight: 600; font-size: 1.1rem; }
       }
 
-      &:hover { transform: translateX(10px); border-color: $accent-color; }
+      &:hover {
+        transform: translateX(10px);
+        border-color: $accent-color;
+        background: var(--card-bg-hover, rgba(255, 128, 0, 0.05));
+      }
+    }
+  }
 
-      .social-links-grid {
-        display: flex; gap: 15px; margin-top: 15px;
-        .s-link {
-          width: 38px; height: 38px; border-radius: 10px;
-          background: rgba(255, 255, 255, 0.05);
-          border: 1px solid var(--border-line);
-          display: flex; align-items: center; justify-content: center;
-          transition: all 0.3s ease;
-          svg { width: 18px; height: 18px; fill: var(--text-main); transition: 0.3s; }
-          &:hover {
-            background: rgba(255, 128, 0, 0.1);
-            border-color: $accent-color;
-            transform: translateY(-3px);
-            svg { fill: $accent-color; }
-          }
-        }
+  .social-links-grid {
+    display: flex; gap: 12px; margin-top: 15px;
+    .s-link {
+      width: 40px; height: 40px; border-radius: 10px;
+      // Use your global variables instead of hardcoded white opacity
+      background: var(--bg-main);
+      border: 1px solid var(--border-line);
+      display: flex; align-items: center; justify-content: center;
+      transition: 0.3s;
+
+      svg { width: 18px; height: 18px; fill: var(--text-main); }
+
+      &:hover {
+        background: $accent-color;
+        border-color: $accent-color;
+        transform: translateY(-3px);
+        svg { fill: #fff; } // Always white on orange accent
       }
     }
   }
@@ -85,23 +103,36 @@ $transition-smooth: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     .form-group {
       margin-bottom: 25px;
       label { display: block; color: var(--text-muted); margin-bottom: 10px; font-size: 0.9rem; }
+
       input, textarea {
-        width: 100%; background: rgba(255,255,255,0.05);
+        width: 100%;
+        background: var(--bg-main); // Cleaner look
         border: 1px solid var(--border-line);
         border-radius: 12px; padding: 15px;
         color: var(--text-main); font-family: inherit;
         transition: 0.3s;
-        &:focus { outline: none; border-color: $accent-color; background: rgba(255,255,255,0.08); }
+
+        &::placeholder { color: var(--text-muted); opacity: 0.5; }
+
+        &:focus {
+          outline: none;
+          border-color: $accent-color;
+          background: var(--card-bg);
+        }
       }
     }
 
     .submit-btn {
       width: 100%; padding: 18px; border-radius: 15px;
-      background: $accent-color; color: #000;
-      border: none; font-weight: 900; font-size: 1rem;
-      cursor: pointer; transition: $transition-smooth;
-      text-transform: uppercase; letter-spacing: 1px;
-      &:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(255, 128, 0, 0.3); }
+      background: $accent-color; color: #fff; // Changed to white for better light mode contrast
+      border: none; font-weight: 800; cursor: pointer;
+      font-size: 1rem; text-transform: uppercase; letter-spacing: 1px;
+      transition: $transition-smooth;
+
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(255, 128, 0, 0.3);
+      }
     }
   }
 }
