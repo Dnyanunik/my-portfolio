@@ -1,59 +1,35 @@
-# MyPortflio
+🚀 Modern 3D Developer Portfolio
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.4.
+An immersive, high-performance developer portfolio built with Angular 19. This project features interactive 3D environments, fluid GSAP animations, and a custom-engineered mobile navigation system.
 
-## Development server
+🛠️ Tech Stack
 
-To start a local development server, run:
+ 1.Core Framework: Angular 19 (Standalone Architecture)
+ 2.3D Graphics: Three.js
+ 3.Motion & Interaction: GSAP (GreenSock Animation Platform)
+ 4. UI Components: Angular Material
+ 5. Styling: SCSS with Glassmorphism effects
+ 6. Hosting: Vercel
 
-```bash
-ng serve
-```
+✨ Key Features
+ 1.Interactive 3D Backgrounds: Real-time 3D rendering using Three.js that responds to user movement.
+ 2.Gesture-Driven Sidebar: A custom-built mobile sidebar with Touch Drag Support (Swipe from left-to-right to open, and right-to-left to close).
+ 3.Glassmorphic UI: A modern, clean design utilizing backdrop blurs and vibrant neon accents.
+ 4.Performance Optimized: Configured for high Lighthouse scores through tree-shaking and optimized build budgets.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-## Code scaffolding
+📂 Project Structure
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+src/
+├── app/
+│   ├── components/  # Reusable UI (Sidebar, Toggle Buttons)
+│   ├── pages/       # Core Views (Home, About, Projects, Skills, Contact)
+│   └── services/    # Logic for Three.js Scenes & GSAP Animations
+├── assets/          # 3D Models (.glb/.gltf), Textures, and static images
+└── styles.scss      # Global styles, variables, and theme configurations
 
-```bash
-ng generate component component-name
-```
+ Output Directory: dist/my-portflio/browser
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+👤 Author: Dnyaneshwar Nikam
+👤 LinkedIn: https://www.linkedin.com/in/dnyaneshwar-haridas-nikam
 
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
