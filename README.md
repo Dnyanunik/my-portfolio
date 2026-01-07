@@ -59,6 +59,7 @@ Configured for high Lighthouse scores using tree-shaking and optimized build bud
 
 📂 Project Structure
 
+
 src/
 ├── app/
 │   ├── components/   # Reusable UI (Sidebar, Toggle Buttons)
@@ -67,8 +68,6 @@ src/
 ├── assets/           # 3D Models (.glb/.gltf), Textures, and static images
 └── styles.scss       # Global styles, variables, and theme configurations
 
-
----
 
 📦 Output Directory
 
