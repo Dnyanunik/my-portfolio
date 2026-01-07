@@ -1,11 +1,3 @@
-Got it 👍
-Below is your same content, no meaning changed, only cleanly formatted and structured so it looks clear, readable, and professional in a README.md file.
-
-You can copy-paste this directly.
-
-
----
-
 🚀 Modern 3D Developer Portfolio
 
 An immersive, high-performance developer portfolio built with Angular 19.
