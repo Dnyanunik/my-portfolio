@@ -1,59 +1,67 @@
-# MyPortflio
+🚀 Modern 3D Developer Portfolio
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.4.
+An immersive, high-performance developer portfolio built with Angular 19.
+This project features interactive 3D environments, fluid GSAP animations, and a custom-engineered mobile navigation system.
 
-## Development server
 
-To start a local development server, run:
+---
 
-```bash
-ng serve
-```
+🛠️ Tech Stack
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+1. Core Framework: Angular 19 (Standalone Architecture)
 
-## Code scaffolding
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+2. 3D Graphics: Three.js
 
-```bash
-ng generate component component-name
-```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+3. Motion & Interaction: GSAP (GreenSock Animation Platform)
 
-```bash
-ng generate --help
-```
 
-## Building
+4. UI Components: Angular Material
 
-To build the project run:
 
-```bash
-ng build
-```
+5. Styling: SCSS with Glassmorphism effects
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
 
-## Running unit tests
+6. Hosting: Vercel
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
 
-```bash
-ng test
-```
 
-## Running end-to-end tests
 
-For end-to-end (e2e) testing, run:
+---
 
-```bash
-ng e2e
-```
+✨ Key Features
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+1. Interactive 3D Backgrounds
+Real-time 3D rendering using Three.js that responds to user movement.
 
-## Additional Resources
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+2. Gesture-Driven Sidebar
+Custom-built mobile sidebar with Touch Drag Support:
+
+Swipe left → right to open
+
+Swipe right → left to close
+
+
+
+3. Glassmorphic UI
+Modern, clean design utilizing backdrop blurs and vibrant neon accents.
+
+
+4. Performance Optimized
+Configured for high Lighthouse scores using tree-shaking and optimized build budgets.
+
+
+📦 Output Directory
+
+https://my-portfolio-orcin-kappa-75.vercel.app
+
+
+👤 Author
+
+Dnyaneshwar Nikam
+
+🔗 LinkedIn:
+https://www.linkedin.com/in/dnyaneshwar-haridas-nikam
+
