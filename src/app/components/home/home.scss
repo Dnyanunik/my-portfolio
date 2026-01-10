@@ -83,6 +83,7 @@ canvas {
     &.primary {
       background: #00d2ff;
       color: #000;
+      max-width: 400px;
       border: none;
       box-shadow: 0 10px 20px rgba(0, 210, 255, 0.2);
     }
@@ -90,6 +91,7 @@ canvas {
     &.outline {
       border: 1px solid #e41297;
       color: #e41297;
+       max-width: 400px;
       background: transparent;
     }
 

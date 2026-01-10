@@ -22,19 +22,25 @@ export class Skills implements AfterViewInit {
       name: 'FRONTEND',
       color: '#ccff00',
       img: 'assets/images/frontend.png',
-      subItems: ['assets/images/angular.png', 'assets/images/typescript.png', 'assets/images/three.png', 'assets/images/scss.png']
+      subItems: ['assets/images/angular.png', 'assets/images/xml.jpg', 'assets/images/three.png', 'assets/images/scss.png']
     },
     {
       id: 'be',
       name: 'BACKEND',
       color: '#00d2ff',
       img: 'assets/images/backend.png',
-      subItems: ['assets/images/nodejs.png', 'assets/images/mongodb.png', 'assets/images/sql.png']
+      subItems: ['assets/images/nodejs.png', 'assets/images/typescript.png', 'assets/images/java.jpg']
     },
     {
+      id: 'dl',
+      name: 'DATABASES',
+      color: '#ff6b00',
+      img: 'assets/images/databases.png',
+      subItems: ['assets/images/mongodb.png', 'assets/images/sql.png  ', 'assets/images/firebase.jpg']
+    } ,{
       id: 'tl',
       name: 'TOOLS',
-      color: '#ff6b00',
+      color: '#7300ffff',
       img: 'assets/images/tools.png',
       subItems: ['assets/images/git.png', 'assets/images/docker.png', 'assets/images/figma.png']
     }

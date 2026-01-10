@@ -130,3 +130,38 @@ $transition-smooth: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 @keyframes welcomeSlide {
   to { opacity: 1; transform: translateY(0); }
 }
+
+.skills-header {
+  text-align: center;
+  margin-bottom: 60px;
+  position: relative;
+  z-index: 2;
+
+  .skills-subtitle {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+  }
+
+  h1 {
+    font-size: clamp(2.2rem, 6vw, 3.5rem);
+    font-weight: 900;
+    color: var(--text-main);
+    margin-bottom: 15px;
+
+    .highlight {
+      color: $accent-color;
+    }
+  }
+
+  .skills-desc {
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+  }
+}
+

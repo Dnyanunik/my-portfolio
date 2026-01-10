@@ -2,6 +2,7 @@ import { Component, AfterViewInit, ElementRef, ViewChild, HostListener, Inject, 
 import { isPlatformBrowser, CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import * as THREE from 'three';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -23,7 +24,7 @@ export class Home implements AfterViewInit {
   private mouseX = 0;
   private mouseY = 0;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+  constructor(@Inject(PLATFORM_ID) private platformId: Object,private router: Router) {}
 
   ngAfterViewInit() {
     if (isPlatformBrowser(this.platformId)) {
@@ -109,5 +110,8 @@ export class Home implements AfterViewInit {
       this.camera.updateProjectionMatrix();
       this.renderer.setSize(window.innerWidth, window.innerHeight);
     }
+  }
+   goToContact(): void {
+    this.router.navigate(['/contact']);
   }
 }
